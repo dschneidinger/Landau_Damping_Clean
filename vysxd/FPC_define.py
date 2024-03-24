@@ -6,11 +6,11 @@ from vysxd_analysis import *
 
 def FPC(directory):
     p1x1_files = np.sort(os.listdir(f'{directory}/MS/PHA/p1x1/electrons/'))
-    p1x1 = vysxd_get_data('EPW-alves/MS/PHA/p1x1/electrons/p1x1-electrons-000000.h5')
+    p1x1 = vysxd_get_data(f'{directory}/MS/PHA/p1x1/electrons/p1x1-electrons-000000.h5')
     A_result = np.empty((len(p1x1.Y),len(p1x1.X)-2,len(p1x1_files)-1))
     B_result = np.empty((len(p1x1.Y),len(p1x1.X)-2,len(p1x1_files)-1))
     for i in range(len(p1x1_files)-1):
-        p1x1 = vysxd_get_data('EPW-alves/MS/PHA/p1x1/electrons/' + p1x1_files[i])
+        p1x1 = vysxd_get_data(f'{directory}/MS/PHA/p1x1/electrons/' + p1x1_files[i])
 
         e1_D_xt = get_osiris_quantity_1d(f'{directory}/MS/FLD/e1/')[0]
 

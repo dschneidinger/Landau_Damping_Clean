@@ -17,7 +17,7 @@ build_info = {
    }
 }
 run_info = {
-  "input_deck_crc":         2547595691.,
+  "input_deck_crc":          902474137.,
   "input_deck": """
 simulation
 {
@@ -41,7 +41,7 @@ coordinates = "cartesian",
 time_step
 {
 dt = 0.032,
-ndump = 8,
+ndump = 32,
 }
 
 restart
@@ -65,7 +65,7 @@ if_move(1:1) = .false.,
 time
 {
 tmin = 0.0e0,
-tmax = 50.0e0,
+tmax = 500.0e0,
 }
 
 !----------field solver set up-----------------
@@ -73,7 +73,7 @@ el_mag_fld ! Driving electric field
 {
     ext_fld = "dynamic",
     type_ext_e(1) = "math func",
-    ext_e_mfunc(1) = "if(t < 6, (sin(3.141592 * t/6))^2, 0.0) * 0.002*sin(6*x1-1.19685039*t)",
+    ext_e_mfunc(1) = "if(t < 6, (sin(3.141592 * t/6))^2, 0.0) * 0.004*sin(6*x1-1.19685039*t)",
 }
 !----------boundary conditions for em-fields ----------
 emf_bound
